@@ -1,0 +1,40 @@
+title: cyber·Fund API
+version: v1
+protocols: [ HTTPS ]
+baseUri: http://api.cyber.fund/{version}
+mediaType: application/json
+types:
+  Goal:
+    type: object
+    properties:
+      hash:
+        required: true
+        type: string
+      timestamp:
+        required: true
+        type: timestamp
+      type:
+        required: false
+        type: string
+      example: |
+         {
+           "data":
+             {
+               "id": "Budget2017",
+               "timestamp":
+               "description":""
+               "is_magic": true
+               "is_private": true
+               "accounts": []
+               "creator": "hipster"
+               "created": timestamp
+               "target":
+                 {
+                   "unit_of_account": "USD:1890.88"
+                   "store_of_value": "BTC:1.874930"
+                 },
+
+             },
+           "success": true,
+           "status": 200
+         }

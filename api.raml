@@ -1,24 +1,144 @@
 #%RAML 1.0
 title: cyber·Fund API
 version: v1
-baseUri: http://api.cyber.fund
+protocols: [ HTTPS ]
+baseUri: http://api.cyber.fund/{version}
+mediaType: application/json
 types:
-  TestType:
-    type: object
-    properties:
-      id: number
-      optional?: string
-      expanded:
-        type: object
-        properties:
-          count: number
-/helloWorld:
-  get:
+  Account: !include types/account.raml
+  Address: !include types/address.raml
+  Block: !include types/block.raml
+  Chain: !include types/chain.raml
+  Exchange: !include types/exchange.raml
+  Goal: !include types/goal.raml
+  Market: !include types/market.raml
+  Node: !include types/node.raml
+  Offer: !include types/offer.raml
+  Operation: !include types/operation.raml
+  Organisation: !include types/organisation.raml
+  Search: !include types/search.raml
+  Token: !include types/token.raml
+  Tx: !include types/tx.raml
+  User: !include types/user.raml
+traits:
+  pageable:
+    queryParameters:
+      offset:
+        description: Skip over a number of elements by specifying an offset value for the query
+        type: integer
+        required: false
+        example: 20
+        default: 0
+      limit:
+        description: Limit the number of elements on the response
+        type: integer
+        required: false
+        example: 80
+        default: 10
+/accounts:
+  description: Accounts can accumulate addresses
+  post:
+    description: Add account
     responses:
       200:
         body:
           application/json:
-            example: |
-              {
-                "message" : "Hello World"
-              }
+            type: Account
+/addresses:
+  description: Addresses can hold tokens
+/blocks:
+  description: Blocks in chains
+/chains:
+  description: Chain is a network of nodes that register sequence of blocks and/or transactions
+  is: [ pageable ]
+  get:
+    description: Collection of all indexed blockchains
+    queryParameters:
+      load:
+      cap:
+      trade:
+      turnover:
+      nodes:
+      size:
+      assets:
+    responses:
+      200:
+        body:
+          application/json:
+  /{chain_name}:
+    displayName: Chain
+    uriParameters:
+      chain_name:
+        displayName: Chain ID
+        type: string
+    get:
+      description: Retrieve a specific chain data
+      responses:
+        200:
+          body:
+            application/json:
+              type: Chain
+  /blocks:
+  /nodes:
+/exchanges:
+  description: Exchange is any application that is able transaprently register offers and trades
+  put:
+    description: put new exchange
+    responses:
+      200:
+        body:
+          application/json:
+            type: Exchange
+  /markets:
+    put:
+      description: Put trade transaction to index
+      responses:
+        200:
+          body:
+            application/json:
+              type: Market
+  /trades:
+/goals:
+  description: Goal is an intention to change structure of account at particular date in the future
+  put:
+    description: Add goal
+    responses:
+      200:
+        body:
+          application/json:
+            type: Goal
+/markets:
+  description: Market is trading pair on particular exchange
+/nodes:
+  description: Node is chain client software
+/offers:
+  description: Offer is an intention of somebody sell something
+/operations:
+  description: Operation is non-atomic part of transaction
+/organizations:
+  description: Organisations are able to group efforts of users
+/search:
+  description: Search is any unique term that was ever searched
+  get:
+    description: Return full text search
+    responses:
+      200:
+        body:
+          application/json:
+            type: Search
+/tokens:
+  description: Tokens are any digital rights or obligations accounted by a chain.
+  /{token_name}:
+  /currencies/:
+    description: Core tokens with liquidity are currencies
+  /assets/:
+    description: Fungible tokens with market price are assets
+  /names/:
+    description: Non-fungible tokens
+/txs:
+  description: Transaction is a set of operations registered anywhere
+
+/users:
+  description: Unique users of a system like bots and humans
+  is: [ pageable ]
+  /{username}:

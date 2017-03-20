@@ -1,0 +1,53 @@
+#%RAML 1.0
+title: cyber•Fund API
+version: v1
+protocols: [ HTTPS ]
+baseUri: http://api.cyber.fund/{version}
+mediaType: application/json
+types:
+  Account:
+    type: object
+    properties:
+      hash:
+        required: true
+        type: string
+      timestamp:
+        required: true
+        type: timestamp
+      type:
+        required: false
+        type: string
+        example: |
+           {
+             "data":
+               {
+                 "id": "Mining",
+                 "timestamp": ""
+                 "description":""
+                 "is_smart": true
+                 "is_private": true
+                 "owner": "hipster"
+                 "valuation_balance":
+                   {
+                     "unit_of_account": "USD:1890.88"
+                     "store_of_value": "BTC:1.874930"
+                   },
+                 "addresses":
+                   {
+                     address:
+                       {
+                       "": "Bitshares:hipster"
+                       }
+                   },
+                 "transactions": 315032
+                 "transactions_change": 315032
+                 "trade":
+                 "trade_change":
+                 "assets": 23
+                 "stars": 31
+                 "watches": 2
+                 "forks":
+               },
+             "success": true,
+             "status": 200
+           }

@@ -1,0 +1,48 @@
+title: cyber·Fund API
+version: v1
+protocols: [ HTTPS ]
+baseUri: http://api.cyber.fund/{version}
+mediaType: application/json
+types:
+  Chain:
+    type: object
+    properties:
+      hash:
+        required: true
+        type: string
+      timestamp:
+        required: true
+        type: timestamp
+      type:
+        required: false
+        type: string
+      example: |
+         {
+           "data":
+             {
+               "id": "Bitcoin",
+               "logo": /ipfs/,
+               "rank":
+                 {
+                   "load":2,
+                   "cap":1,
+                   "trade": 1,
+                   "turnover": 1,
+                   "nodes":2,
+                   "size":1,
+                   "assets":3
+                 },
+               "transactions": 315032
+               "transactions_change": 315032
+               "trade":
+               "trade_change":
+               "daily_nodes": 6500
+               "assets": 23
+               "cap": 18000
+               "stars":
+               "last_block": 456000
+               "node_version":
+             },
+           "success": true,
+           "status": 200
+         }
