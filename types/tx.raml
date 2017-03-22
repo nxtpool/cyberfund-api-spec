@@ -10,21 +10,33 @@ types:
       hash:
         required: true
         type: string
-      timestamp:
-        required: true
-        type: timestamp
-      type:
-        required: false
-        type: string
-      chain:
-        required: true
-        type: string
       reporter:
         required: true
-        type: user
+        type: object
+      timestamp:
+        required: true
+        type: datetime
+      refference:
+        required: false
+        type: string
+      description:
+        required: false
+        type: string
+      from:
+        required: true
+        type: object
+      to:
+        required: true
+        type: object
+      token:
+        required: true
+        type: object
       amount:
         required: true
         type: integer
-      total:
-        required: true
+      uoa:
+        required: false
+        type: integer
+      sov:
+        required: false
         type: integer
