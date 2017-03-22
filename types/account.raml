@@ -1,9 +1,4 @@
 #%RAML 1.0
-title: cyber•Fund API
-version: v1
-protocols: [ HTTPS ]
-baseUri: http://api.cyber.fund/{version}
-mediaType: application/json
 types:
   Account:
     type: object
@@ -13,7 +8,7 @@ types:
         type: string
       timestamp:
         required: true
-        type: timestamp
+        type: datetime
       type:
         required: false
         type: string
