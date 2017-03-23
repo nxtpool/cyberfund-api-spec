@@ -10,6 +10,9 @@ types:
       hash:
         required: true
         type: string
+      system_type: #auto or #manual
+        required: true
+        type: boolean
       reporter:
         required: true
         type: object
@@ -34,9 +37,9 @@ types:
       amount:
         required: true
         type: integer
-      uoa:
+      btc_valuation:
         required: false
         type: integer
-      uov:
+      usd_valuation:
         required: false
         type: integer

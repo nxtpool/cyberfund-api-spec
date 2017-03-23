@@ -1,0 +1,66 @@
+title: cyber·Fund API
+version: v1
+protocols: [ HTTPS ]
+baseUri: http://api.cyber.fund/{version}
+mediaType: application/json
+types:
+  Ico:
+    type: object
+    properties:
+      hash:
+        required: true
+        type: string
+      timestamp:
+        required: true
+        type: datetime
+      stage: #project, planned, active, finished
+        required: true
+        type: datetime
+      type: # idea, research, implementation
+        required: false
+        type: string
+      token:
+        required: false
+        type: token.object
+      maxCap:
+        required: false
+        type: integer
+      minCap:
+        required: false
+        type: integer
+      discounts:
+        required: false
+        type: array
+      start_date:
+        required: true
+        type: datetime
+      end_date:
+        required: true
+        type: datetime
+      genesis_address:
+        required: true
+        type: array
+      funding_terms:
+        required: true
+        type: string
+      funding_url:
+        required: true
+        type: string
+      fix_price:
+        required: false
+        type: integer
+      fix_supply:
+        required: false
+        type: integer
+      tokens_sold:
+        required: true
+        type: integer
+      btc_raised:
+        required: true
+        type: integer
+      funds_allocation:
+        required: true
+        type: array
+      ico_distribution:
+        required: true
+        type: array

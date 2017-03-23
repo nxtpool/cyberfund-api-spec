@@ -13,7 +13,7 @@ types:
   Goal: !include types/goal.raml
   Market: !include types/market.raml
   Node: !include types/node.raml
-  Offer: !include types/offer.raml
+  Ico: !include types/ico.raml
   Operation: !include types/operation.raml
   Organisation: !include types/organisation.raml
   Search: !include types/search.raml
@@ -111,7 +111,7 @@ traits:
   description: Market is trading pair on particular exchange
 /nodes:
   description: Node is chain client software
-/offers:
+/icos:
   description: Offer is an intention of somebody sell something
 /operations:
   description: Operation is non-atomic part of transaction
@@ -137,6 +137,7 @@ traits:
     description: Non-fungible tokens
 /txs:
   description: Transaction is a set of operations registered anywhere
+  get:
 
 /users:
   description: Unique users of a system like bots and humans
