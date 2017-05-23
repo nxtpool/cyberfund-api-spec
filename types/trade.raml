@@ -1,0 +1,39 @@
+title: cyber·Fund API
+version: v1
+protocols: [ HTTPS ]
+baseUri: http://api.cyber.fund/{version}
+mediaType: application/json
+types:
+  Trade:
+    type: object
+    properties:
+      hash:
+        required: true
+        type: string
+      timestamp:
+        required: true
+        type: datetime
+      type:
+        required: true
+        type: string
+      id:
+        required: false
+        type: string
+      base:
+        required: true
+        type: string
+      quote:
+        required: true
+        type: string
+      market:
+        required: true
+        type: string
+      baseAmount:
+        required: true
+        type: number
+      quoteAmount:
+        required: true
+        type: number
+      price:
+        required: true
+        type: number
